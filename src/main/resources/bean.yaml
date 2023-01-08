@@ -1,0 +1,6 @@
+name : "Customer"
+attributes :
+  - type : "Long"
+    name : "id"
+  - type: "String"
+    name: "customerName"
