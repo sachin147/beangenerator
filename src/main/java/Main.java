@@ -21,8 +21,18 @@ public class Main {
         for(Attribute attribute : type.getAttributes()) {
             code.append(attribute.getType()).append(" ").append(attribute.getName()).append(";\n");
         }
+
+        code.append("\n");
+        code.append("public "+className+"(");
+        for(Attribute attribute : type.getAttributes()) {
+            code.append(attribute.getType()).append(" ").append(attribute.getName()).append(",");
+        }
+        code.append(")\n");
+        for(Attribute attribute : type.getAttributes()) {
+            code.append(code.append("this.").append(attribute.getName()).append(" = ").append(attribute.getName()).append(";\n"));
+        }
         code.append("}");
-        //System.out.println(code.toString());
+        System.out.println(code.toString());
 
         FileOutputStream fileOutputStream = new FileOutputStream( "Customer.java" );
         PrintWriter out = new PrintWriter( fileOutputStream );
